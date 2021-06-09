@@ -6,8 +6,8 @@
 
 // Adafruit IO
 AdafruitIO_WiFi io(IO_USERNAME, IO_KEY, WIFI_SSID, WIFI_PASS);
-AdafruitIO_Feed *pm_25 = io.feed("pm25");
-AdafruitIO_Feed *pm_10 = io.feed("pm10");
+AdafruitIO_Feed *pm_25 = io.feed("esp1-pm25");
+AdafruitIO_Feed *pm_10 = io.feed("esp1-pm10");
 
 // SDS011
 uint8_t rx_pin = D7;
@@ -32,6 +32,7 @@ void setup() {
   }
 
   // we are connected
+  Serial.println("Connected to Adafruit IO");
   digitalWrite(2, LOW);
   Serial.println();
   Serial.println(io.statusText());
